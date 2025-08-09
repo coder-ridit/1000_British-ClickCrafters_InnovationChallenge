@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Innovations</title>
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            /* Updated background for a technological look */
+            background: #0a0a1a;
+            color: #e0e0ff; /* Light, tech-inspired font color */
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            /* This creates a subtle animated grid pattern */
+            background-image: 
+                linear-gradient(to right, rgba(0,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,255,255,0.05) 1px, transparent 1px);
+            background-size: 25px 25px;
+            animation: pulseGrid 30s linear infinite;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* This adds a glowing, holographic effect */
+            background: radial-gradient(circle at 20% 80%, rgba(0,255,255,0.1) 0%, transparent 20%),
+                        radial-gradient(circle at 80% 20%, rgba(255,0,255,0.1) 0%, transparent 20%);
+            background-size: 200% 200%;
+            z-index: -1;
+            animation: holographicShift 20s ease infinite;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+        
+        nav a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+        }
+        
+        nav a:hover {
+            background-color: rgba(0,255,255,0.2);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 0 15px #00ffff, 0 0 20px #00ffff;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #00ffff;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        nav a:hover::after {
+            width: 80%;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1 {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ff;
+            animation: fadeIn 2s ease;
+        }
+        
+        h3 {
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+        }
+        
+        p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            animation: fadeIn 2.5s ease;
+        }
+        
+        /* Home Section */
+        #home {
+            position: relative;
+        }
+        
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,255,255,0.1) 0%, rgba(0,0,0,0) 70%);
+            animation: pulse 8s infinite alternate;
+            z-index: -1;
+        }
+        
+        .home-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: rgba(0,255,255,0.2);
+            color: #00ffff;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 1.5rem;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 15px rgba(0,255,255,0.5);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(0,255,255,0.5);
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 0 25px #00ffff, 0 0 35px #00ffff;
+            background: rgba(0,255,255,0.3);
+            border-color: #00ffff;
+        }
+        
+        /* Quiz Section */
+        #quiz {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .quiz-container {
+            background: rgba(0,255,255,0.1);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 0 30px rgba(0,255,255,0.3);
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0,255,255,0.2);
+        }
+        
+        .quiz-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            animation: progressBar 30s linear infinite;
+        }
+        
+        .question {
+            margin-bottom: 2.5rem;
+            text-align: left;
+            transform-origin: top left;
+            animation: fadeInLeft 1s ease;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .option {
+            background: rgba(0,255,255,0.1);
+            border: 2px solid rgba(0,255,255,0.3);
+            padding: 1.2rem 1.5rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: left;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(3px);
+            color: #e0e0ff;
+        }
+        
+        .option:hover {
+            border-color: #00ffff;
+            background: rgba(0,255,255,0.2);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 15px rgba(0,255,255,0.3);
+        }
+        
+        .option.selected {
+            background: rgba(0,255,255,0.3);
+            color: #00ffff;
+            border-color: #00ffff;
+            font-weight: 600;
+        }
+        
+        .option.selected::before {
+            content: '✓';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+        }
+        
+        .quiz-button {
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            margin-top: 2rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.1rem;
+            box-shadow: 0 0 20px rgba(255,0,255,0.5), 0 0 20px rgba(0,255,255,0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        .quiz-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 35px #ff00ff, 0 0 35px #00ffff;
+        }
+        
+        .quiz-result {
+            display: none;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(0,255,255,0.2);
+            border-radius: 20px;
+            border-left: 5px solid #00ffff;
+            animation: bounceIn 1s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .quiz-result h3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Games Section */
+        #games {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .game-container {
+            background: rgba(0,255,255,0.1);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 0 30px rgba(0,255,255,0.3);
+            max-width: 900px;
+            width: 100%;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0,255,255,0.2);
+        }
+        
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 5px;
+            margin: 3rem auto;
+            max-width: 500px;
+        }
+        
+        .game-cell {
+            width: 40px;
+            height: 40px;
+            background: rgba(0,255,255,0.1);
+            border: 2px solid rgba(0,255,255,0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-cell:hover {
+            background: rgba(0,255,255,0.2);
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0,255,255,0.5);
+        }
+        
+        .game-cell.hit {
+            background: rgba(255,0,0,0.5);
+            animation: hitAnimation 0.5s ease;
+        }
+        
+        .game-cell.miss {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+        
+        .game-cell.robot::after {
+            content: '🤖';
+            position: absolute;
+            animation: robotFloat 2s infinite ease-in-out;
+        }
+        
+        .game-cell.tree::after {
+            content: '🌳';
+            position: absolute;
+            animation: treeGrow 0.5s ease;
+        }
+        
+        .game-cell.recycled {
+            background: rgba(0,255,0,0.3);
+            animation: recyclePulse 1s infinite;
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        
+        .game-stat {
+            background: rgba(0,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 0 15px rgba(0,255,255,0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0,255,255,0.2);
+        }
+        
+        .game-message {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(0,255,255,0.2);
+            border-radius: 15px;
+            font-weight: 600;
+            animation: fadeIn 0.5s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid #00ffff;
+        }
+        
+        /* Tech for Disabled Section */
+        #tech-disabled {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+            max-width: 1300px;
+        }
+        
+        .tech-card {
+            background: rgba(0,255,255,0.1);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 0 20px rgba(0,255,255,0.2);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0,255,255,0.2);
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 0 35px rgba(0,255,255,0.4);
+            background: rgba(0,255,255,0.15);
+        }
+        
+        .tech-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            transition: all 0.6s ease;
+        }
+        
+        .tech-card:hover::after {
+            height: 10px;
+        }
+        
+        .tech-card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        /* Water Conservation Section */
+        #water-conservation {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .water-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .water-stat {
+            background: rgba(0,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(0,255,255,0.2);
+            min-width: 200px;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0,255,255,0.2);
+        }
+        
+        .water-stat:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 0 40px rgba(0,255,255,0.3);
+        }
+        
+        .water-stat h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .water-stat p {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .water-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .water-tip {
+            background: rgba(0,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0,255,255,0.2);
+            transition: all 0.5s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0,255,255,0.2);
+        }
+        
+        .water-tip:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0,255,255,0.3);
+        }
+        
+        .water-tip::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #00ffff, #0099ff);
+            transition: all 0.5s ease;
+        }
+        
+        .water-tip:hover::before {
+            width: 10px;
+        }
+        
+        .water-tip h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Public Spaces Section */
+        #public-spaces {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .space-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .space-item {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0,255,255,0.3);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 300px;
+            background: rgba(0,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0,255,255,0.2);
+        }
+        
+        .space-item:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 0 60px rgba(0,255,255,0.5);
+        }
+        
+        .space-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: all 0.6s ease;
+        }
+        
+        .space-item:hover .space-overlay {
+            transform: translateY(0);
+        }
+        
+        .space-overlay h3 {
+            margin-bottom: 1rem;
+            color: #00ffff;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+            animation: progressBar 10s linear infinite;
+        }
+        
+        footer p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.5rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0,255,255,0.2);
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            transform: translateY(-10px) rotate(20deg) scale(1.2);
+            box-shadow: 0 0 35px rgba(255,0,255,0.5), 0 0 35px rgba(0,255,255,0.5);
+        }
+        
+        /* Animations */
+        @keyframes pulseGrid {
+            0% { background-position: 0 0; }
+            100% { background-position: 25px 25px; }
+        }
+        
+        @keyframes holographicShift {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes progressBar {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes hitAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes recyclePulse {
+            0% { box-shadow: 0 0 0 0 rgba(0,255,0,0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(0,255,0,0); }
+            100% { box-shadow: 0 0 0 0 rgba(0,255,0,0); }
+        }
+        
+        @keyframes robotFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes treeGrow {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .options {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-grid, .water-tips, .space-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            body::before {
+                background-size: 300% 300%, 300% 300%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            nav a {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .game-cell {
+                width: 30px;
+                height: 30px;
+                font-size: 1.2rem;
+            }
+            
+            body::before {
+                background-size: 200% 200%, 200% 200%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#quiz">Eco Quiz</a></li>
+            <li><a href="#games">Eco Game</a></li>
+            <li><a href="#tech-disabled">Tech for Disabled</a></li>
+            <li><a href="#water-conservation">Save Water</a></li>
+            <li><a href="#public-spaces">Public Spaces</a></li>
+        </ul>
+    </nav>
+    
+    <section id="home">
+        <div class="home-content">
+            <h1>Hybrid Innovations</h1>
+            <p style="animation-delay: 0.3s;">Innovative approaches combining technology, community, and sustainability to create a greener future for all.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                <a href="#quiz" class="cta-button" style="animation-delay: 0.5s;">Test Your Knowledge</a>
+                <a href="#games" class="cta-button" style="animation-delay: 0.7s;">Play Eco Game</a>
+                <a href="#tech-disabled" class="cta-button" style="animation-delay: 0.9s;">Tech for Good</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="quiz">
+        <h2>Eco Awareness Quiz</h2>
+        <p>Test your knowledge about sustainability and learn how to reduce your environmental footprint.</p>
+        
+        <div class="quiz-container">
+            <div class="question" style="animation-delay: 0.2s;">
+                <h3>1. Approximately what percentage of plastic waste is recycled globally?</h3>
+                <div class="options">
+                    <div class="option">Less than 10%</div>
+                    <div class="option">About 25%</div>
+                    <div class="option">Around 50%</div>
+                    <div class="option">More than 75%</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 0.4s;">
+                <h3>2. Which of these items takes the longest to decompose in a landfill?</h3>
+                <div class="options">
+                    <div class="option">Paper towel (2-4 weeks)</div>
+                    <div class="option">Aluminum can (200-500 years)</div>
+                    <div class="option">Plastic bottle (450 years)</div>
+                    <div class="option">Glass bottle (1 million years)</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 0.6s;">
+                <h3>3. What is the most effective way to reduce food waste at home?</h3>
+                <div class="options">
+                    <div class="option">Composting all food scraps</div>
+                    <div class="option">Meal planning and proper storage</div>
+                    <div class="option">Buying in bulk to reduce packaging</div>
+                    <div class="option">Donating excess food to shelters</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 0.8s;">
+                <h3>4. Which activity saves the most water?</h3>
+                <div class="options">
+                    <div class="option">Turning off the tap while brushing teeth</div>
+                    <div class="option">Taking 5-minute showers instead of baths</div>
+                    <div class="option">Fixing a leaky faucet</div>
+                    <div class="option">Installing a low-flow toilet</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 1s;">
+                <h3>5. What percentage of the world's energy comes from renewable sources?</h3>
+                <div class="options">
+                    <div class="option">About 5%</div>
+                    <div class="option">Around 15%</div>
+                    <div class="option">Nearly 30%</div>
+                    <div class="option">Over 50%</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 1.2s;">
+                <h3>6. Which material has the lowest carbon footprint for grocery bags?</h3>
+                <div class="options">
+                    <div class="option">Plastic</div>
+                    <div class="option">Paper</div>
+                    <div class="option">Cotton</div>
+                    <div class="option">Recycled polypropylene</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 1.4s;">
+                <h3>7. What is the most energy-efficient way to wash dishes?</h3>
+                <div class="options">
+                    <div class="option">Hand washing with running water</div>
+                    <div class="option">Hand washing in a filled basin</div>
+                    <div class="option">Energy-star certified dishwasher (full load)</div>
+                    <div class="option">Regular dishwasher (full load)</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 1.6s;">
+                <h3>8. Which of these reduces your carbon footprint the most?</h3>
+                <div class="options">
+                    <div class="option">Going vegetarian one day a week</div>
+                    <div class="option">Not driving one day a week</div>
+                    <div class="option">Line drying clothes instead of using a dryer</div>
+                    <div class="option">Switching to LED light bulbs</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 1.8s;">
+                <h3>9. What percentage of marine debris comes from land-based sources?</h3>
+                <div class="options">
+                    <div class="option">About 20%</div>
+                    <div class="option">Around 50%</div>
+                    <div class="option">Nearly 80%</div>
+                    <div class="option">Over 90%</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 2s;">
+                <h3>10. Which country recycles the highest percentage of its waste?</h3>
+                <div class="options">
+                    <div class="option">United States</div>
+                    <div class="option">Germany</div>
+                    <div class="option">Japan</div>
+                    <div class="option">Sweden</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 2.2s;">
+                <h3>11. How much energy is saved by recycling aluminum compared to producing new aluminum?</h3>
+                <div class="options">
+                    <div class="option">5%</div>
+                    <div class="option">25%</div>
+                    <div class="option">50%</div>
+                    <div class="option">95%</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 2.4s;">
+                <h3>12. Which of these is NOT a benefit of urban green spaces?</h3>
+                <div class="options">
+                    <div class="option">Reduced air pollution</div>
+                    <div class="option">Lower summer temperatures</div>
+                    <div class="option">Increased property values</div>
+                    <div class="option">Higher energy consumption</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 2.6s;">
+                <h3>13. What is the average daily water usage per person in developed countries?</h3>
+                <div class="options">
+                    <div class="option">20-50 liters</div>
+                    <div class="option">80-120 liters</div>
+                    <div class="option">150-300 liters</div>
+                    <div class="option">400-600 liters</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 2.8s;">
+                <h3>14. Which of these is the most effective way to reduce electronic waste?</h3>
+                <div class="options">
+                    <div class="option">Recycling electronics properly</div>
+                    <div class="option">Buying devices with longer lifespans</div>
+                    <div class="option">Repairing instead of replacing</div>
+                    <div class="option">Donating old devices</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 3s;">
+                <h3>15. What percentage of the world's population faces water scarcity at least one month per year?</h3>
+                <div class="options">
+                    <div class="option">About 10%</div>
+                    <div class="option">Around 25%</div>
+                    <div class="option">Nearly 40%</div>
+                    <div class="option">Over 60%</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 3.2s;">
+                <h3>16. Which of these packaging materials is most difficult to recycle?</h3>
+                <div class="options">
+                    <div class="option">Clear glass</div>
+                    <div class="option">Aluminum</div>
+                    <div class="option">Cardboard</div>
+                    <div class="option">Multi-layer plastic (chip bags)</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 3.4s;">
+                <h3>17. How much of the world's food is wasted annually?</h3>
+                <div class="options">
+                    <div class="option">About 5%</div>
+                    <div class="option">Around 15%</div>
+                    <div class="option">Nearly 33%</div>
+                    <div class="option">Over 50%</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 3.6s;">
+                <h3>18. Which transportation method has the lowest carbon emissions per passenger mile?</h3>
+                <div class="options">
+                    <div class="option">Car (solo driver)</div>
+                    <div class="option">Bus</div>
+                    <div class="option">Train</div>
+                    <div class="option">Bicycle</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 3.8s;">
+                <h3>19. What is the "circular economy" concept?</h3>
+                <div class="options">
+                    <div class="option">An economic system that eliminates waste through reuse</div>
+                    <div class="option">A market that only uses renewable resources</div>
+                    <div class="option">A zero-growth economic model</div>
+                    <div class="option">A system where all products are recycled</div>
+                </div>
+            </div>
+            
+            <div class="question" style="animation-delay: 4s;">
+                <h3>20. Which of these actions has the biggest impact on reducing your carbon footprint?</h3>
+                <div class="options">
+                    <div class="option">Switching to a plant-based diet</div>
+                    <div class="option">Living car-free</div>
+                    <div class="option">Avoiding one transatlantic flight</div>
+                    <div class="option">Using renewable energy at home</div>
+                </div>
+            </div>
+            
+            <button class="quiz-button" style="animation-delay: 4.2s;">Calculate My Eco Score</button>
+            
+            <div class="quiz-result">
+                <h3>Your Eco Awareness Results</h3>
+                <p id="quiz-score">Based on your answers, your eco awareness score is <span style="font-weight: bold;">75/100</span>.</p>
+                <p id="quiz-tips">You're doing better than average! To improve further: consider reducing meat consumption, audit your home's energy efficiency, and research local recycling guidelines for items you're unsure about.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="games">
+        <h2>Eco Defense Game</h2>
+        <p>Help the environment fight back against pollution in this strategic battle!</p>
+        
+        <div class="game-container">
+            <div class="game-stats">
+                <div class="game-stat">Pollution Robots: <span id="robots-left">10</span></div>
+                <div class="game-stat">Trees Saved: <span id="trees-saved">0</span></div>
+                <div class="game-stat">Turns: <span id="turns">0</span></div>
+            </div>
+            
+            <div class="game-board" id="game-board">
+                </div>
+            
+            <div class="game-message" id="game-message">
+                Click on cells to find and defeat pollution robots. Save trees to win!
+            </div>
+            
+            <button class="quiz-button" id="restart-game">Restart Game</button>
+        </div>
+    </section>
+    
+    <section id="tech-disabled">
+        <h2>Hybrid Tech for Disabled Individuals</h2>
+        <p>Innovative combinations of hardware and software that improve accessibility and quality of life.</p>
+        
+        <div class="tech-grid">
+            <div class="tech-card" style="animation-delay: 0.2s;">
+                <div class="tech-icon">👁️</div>
+                <h3>Smart Glasses for the Visually Impaired</h3>
+                <p>Combines camera hardware with AI software to describe surroundings, read text aloud, and recognize faces in real-time through bone-conduction audio.</p>
+                <p>Uses edge computing to process information locally for faster response times and privacy protection.</p>
+            </div>
+            
+            <div class="tech-card" style="animation-delay: 0.4s;">
+                <div class="tech-icon">🦾</div>
+                <h3>Mind-Controlled Prosthetics</h3>
+                <p>Advanced prosthetic limbs with neural interface hardware that interprets brain signals through machine learning algorithms, allowing natural movement control.</p>
+                <p>Incorporates haptic feedback sensors to provide sensory information back to the user.</p>
+            </div>
+            
+            <div class="tech-card" style="animation-delay: 0.6s;">
+                <div class="tech-icon">🗣️</div>
+                <h3>Real-Time Speech to Sign Language</h3>
+                <p>Camera systems paired with AI translation software convert spoken language into sign language animations displayed on screens or through robotic signing avatars.</p>
+                <p>Can also translate sign language back to speech for two-way communication.</p>
+            </div>
+            
+            <div class="tech-card" style="animation-delay: 0.8s;">
+                <div class="tech-icon">♿</div>
+                <h3>Smart Wheelchair Navigation</h3>
+                <p>Wheelchairs equipped with LIDAR, cameras, and GPS that map environments in real-time and suggest accessible routes through a mobile app interface.</p>
+                <p>Can autonomously navigate to destinations while avoiding obstacles when needed.</p>
+            </div>
+            
+            <div class="tech-card" style="animation-delay: 1s;">
+                <div class="tech-icon">👂</div>
+                <h3>AI-Powered Hearing Enhancement</h3>
+                <p>Advanced hearing aids that use directional microphones and neural networks to amplify speech while suppressing background noise in real-time.</p>
+                <p>Can be tuned to individual hearing patterns and learn to recognize important sounds (doorbells, alarms, etc.).</p>
+            </div>
+            
+            <div class="tech-card" style="animation-delay: 1.2s;">
+                <div class="tech-icon">🏠</div>
+                <h3>Universal Access Smart Home</h3>
+                <p>Integrated system combining voice control, eye-tracking, switch interfaces, and environmental sensors to allow complete home control through any accessible method.</p>
+                <p>Learns user patterns to automate frequent routines and anticipate needs.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="water-conservation">
+        <h2>Smart Water Conservation</h2>
+        <p>Innovative approaches to preserving our most precious resource through technology and behavior change.</p>
+        
+        <div class="water-stats">
+            <div class="water-stat" style="animation-delay: 0.2s;">
+                <h3>Average Daily Use</h3>
+                <p>300L</p>
+                <p style="font-size: 1rem;">per person in cities</p>
+            </div>
+            
+            <div class="water-stat" style="animation-delay: 0.4s;">
+                <h3>Potential Savings</h3>
+                <p>55%</p>
+                <p style="font-size: 1rem;">with smart devices</p>
+            </div>
+            
+            <div class="water-stat" style="animation-delay: 0.6s;">
+                <h3>Global Shortage</h3>
+                <p>2B</p>
+                <p style="font-size: 1rem;">people affected</p>
+            </div>
+        </div>
+        
+        <div class="water-tips">
+            <div class="water-tip" style="animation-delay: 0.3s;">
+                <h3>Smart Irrigation Systems</h3>
+                <p>Soil moisture sensors combined with weather forecasts and machine learning optimize watering schedules, reducing outdoor water use by up to 50%.</p>
+            </div>
+            
+            <div class="water-tip" style="animation-delay: 0.5s;">
+                <h3>Leak Detection Networks</h3>
+                <p>Advanced metering infrastructure with AI pattern recognition identifies leaks in real-time, preventing thousands of gallons of water loss annually.</p>
+            </div>
+            
+            <div class="water-tip" style="animation-delay: 0.7s;">
+                <h3>Greywater Recycling</h3>
+                <p>Compact filtration systems allow reuse of shower and laundry water for toilet flushing and irrigation, reducing household water demand by 30-50%.</p>
+            </div>
+            
+            <div class="water-tip" style="animation-delay: 0.9s;">
+                <h3>Behavioral Nudge Devices</h3>
+                <p>Smart shower displays with real-time water use feedback and gamification reduce consumption by making conservation visible and rewarding.</p>
+            </div>
+            
+            <div class="water-tip" style="animation-delay: 1.1s;">
+                <h3>Atmospheric Water Generators</h3>
+                <p>Hybrid systems using solar power and condensation technology extract drinking water from humid air, ideal for water-scarce regions.</p>
+            </div>
+            
+            <div class="water-tip" style="animation-delay: 1.3s;">
+                <h3>Urban Rainwater Harvesting</h3>
+                <p>Smart cistern systems with automated controls and purification make rainwater collection practical for urban buildings, reducing municipal water demand.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="public-spaces">
+        <h2>Reimagining Public Spaces</h2>
+        <p>Innovative designs and technologies that make shared spaces more sustainable, accessible, and enjoyable for all.</p>
+        
+        <div class="space-gallery">
+            <div class="space-item" style="animation-delay: 0.2s;">
+                🌳
+                <div class="space-overlay">
+                    <h3>Urban Green Spaces</h3>
+                    <p>Parks and gardens integrated with smart benches, solar charging, and environmental sensors to create sustainable community hubs.</p>
+                </div>
+            </div>
+            
+            <div class="space-item" style="animation-delay: 0.4s;">
+                🚲
+                <div class="space-overlay">
+                    <h3>Mobility Hubs</h3>
+                    <p>Integrated stations combining bike-sharing, EV charging, and real-time transit info to encourage sustainable transportation.</p>
+                </div>
+            </div>
+            
+            <div class="space-item" style="animation-delay: 0.6s;">
+                ♿
+                <div class="space-overlay">
+                    <h3>Universal Design</h3>
+                    <p>Public spaces designed for all abilities with tactile paving, audio cues, and inclusive playground equipment.</p>
+                </div>
+            </div>
+            
+            <div class="space-item" style="animation-delay: 0.8s;">
+                💡
+                <div class="space-overlay">
+                    <h3>Smart Lighting</h3>
+                    <p>Responsive LED systems that adjust brightness based on activity levels, reducing energy use while maintaining safety.</p>
+                </div>
+            </div>
+            
+            <div class="space-item" style="animation-delay: 1s;">
+                🗑️
+                <div class="space-overlay">
+                    <h3>Waste Innovation</h3>
+                    <p>Solar-powered compacting bins with fill-level sensors optimize collection routes and reduce overflow.</p>
+                </div>
+            </div>
+            
+            <div class="space-item" style="animation-delay: 1.2s;">
+                🌐
+                <div class="space-overlay">
+                    <h3>Digital Integration</h3>
+                    <p>Interactive kiosks with wayfinding, emergency alerts, and community information in multiple languages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <script>
+        // Quiz Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all options
+            const options = document.querySelectorAll('.option');
+            
+            // Add click event to each option
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options in this question
+                    this.parentNode.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Quiz submit button
+            const quizButton = document.querySelector('.quiz-button');
+            const quizResult = document.querySelector('.quiz-result');
+            
+            quizButton.addEventListener('click', function() {
+                // Simple scoring logic (in a real app, this would be more sophisticated)
+                const selectedOptions = document.querySelectorAll('.option.selected');
+                let score = 0;
+                
+                // Correct answers for each question (index of correct option)
+                const correctAnswers = [
+                    0, // Q1: Less than 10%
+                    3, // Q2: Glass bottle
+                    1, // Q3: Meal planning
+                    3, // Q4: Low-flow toilet
+                    2, // Q5: Nearly 30%
+                    3, // Q6: Recycled polypropylene
+                    2, // Q7: Energy-star dishwasher
+                    1, // Q8: Not driving one day a week (Corrected from original)
+                    2, // Q9: Nearly 80%
+                    1, // Q10: Germany
+                    3, // Q11: 95%
+                    3, // Q12: Higher energy consumption
+                    2, // Q13: 150-300 liters
+                    2, // Q14: Repairing instead of replacing (Corrected from original)
+                    2, // Q15: Nearly 40%
+                    3, // Q16: Multi-layer plastic
+                    2, // Q17: Nearly 33%
+                    3, // Q18: Bicycle
+                    0, // Q19: An economic system that eliminates waste through reuse
+                    1  // Q20: Living car-free
+                ];
+                
+                // Calculate score
+                selectedOptions.forEach((option, index) => {
+                    const questionOptions = option.parentNode.querySelectorAll('.option');
+                    const selectedIndex = Array.from(questionOptions).indexOf(option);
+                    
+                    // Check if the question is within the bounds of correctAnswers
+                    if (index < correctAnswers.length && selectedIndex === correctAnswers[index]) {
+                        score += 5; // 5 points per correct answer (100 total)
+                    }
+                });
+                
+                let rating, tips;
+                if (score >= 80) {
+                    rating = 'excellent';
+                    tips = "You're an eco champion! Share your knowledge with others and consider getting involved in local sustainability initiatives.";
+                } else if (score >= 60) {
+                    rating = 'good';
+                    tips = "You're doing better than average! To improve further: research local recycling guidelines, audit your home's energy efficiency, and try incorporating more plant-based meals.";
+                } else if (score >= 40) {
+                    rating = 'fair';
+                    tips = "You have some eco awareness but room for improvement. Start by focusing on reducing single-use plastics, being mindful of water use, and learning proper recycling practices for your area.";
+                } else {
+                    rating = 'needs improvement';
+                    tips = "There's significant opportunity to learn about sustainability. Begin with small changes like turning off lights when not in use, reducing shower time, and using reusable shopping bags. Every small action helps!";
+                }
+                
+                document.getElementById('quiz-score').innerHTML = 
+                    `Based on your answers, your eco awareness score is <span style="font-weight: bold;">${score}/100</span> (${rating}).`;
+                document.getElementById('quiz-tips').textContent = tips;
+                
+                quizResult.style.display = 'block';
+                quizResult.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Eco Defense Game
+            const gameBoard = document.getElementById('game-board');
+            const robotsLeftDisplay = document.getElementById('robots-left');
+            const treesSavedDisplay = document.getElementById('trees-saved');
+            const turnsDisplay = document.getElementById('turns');
+            const messageDisplay = document.getElementById('game-message');
+            const restartButton = document.getElementById('restart-game');
+            
+            const BOARD_SIZE = 10;
+            const ROBOT_COUNT = 10;
+            const TREE_COUNT = 15;
+            
+            let robotsLeft = ROBOT_COUNT;
+            let treesSaved = 0;
+            let turns = 0;
+            let robotPositions = [];
+            let treePositions = [];
+            let revealedCells = new Set();
+            
+            // Initialize game
+            function initGame() {
+                // Clear board
+                gameBoard.innerHTML = '';
+                robotsLeft = ROBOT_COUNT;
+                treesSaved = 0;
+                turns = 0;
+                robotPositions = [];
+                treePositions = [];
+                revealedCells = new Set();
+                
+                // Update displays
+                robotsLeftDisplay.textContent = robotsLeft;
+                treesSavedDisplay.textContent = treesSaved;
+                turnsDisplay.textContent = turns;
+                messageDisplay.textContent = 'Click on cells to find and defeat pollution robots. Save trees to win!';
+                
+                // Generate random positions for robots
+                while (robotPositions.length < ROBOT_COUNT) {
+                    const position = `${Math.floor(Math.random() * BOARD_SIZE)}-${Math.floor(Math.random() * BOARD_SIZE)}`;
+                    if (!robotPositions.includes(position)) {
+                        robotPositions.push(position);
+                    }
+                }
+                
+                // Generate random positions for trees (not overlapping with robots)
+                while (treePositions.length < TREE_COUNT) {
+                    const position = `${Math.floor(Math.random() * BOARD_SIZE)}-${Math.floor(Math.random() * BOARD_SIZE)}`;
+                    if (!robotPositions.includes(position) && !treePositions.includes(position)) {
+                        treePositions.push(position);
+                    }
+                }
+                
+                // Create board cells
+                for (let i = 0; i < BOARD_SIZE; i++) {
+                    for (let j = 0; j < BOARD_SIZE; j++) {
+                        const cell = document.createElement('div');
+                        cell.classList.add('game-cell');
+                        cell.dataset.position = `${i}-${j}`;
+                        cell.addEventListener('click', handleCellClick);
+                        gameBoard.appendChild(cell);
+                    }
+                }
+            }
+            
+            // Handle cell click
+            function handleCellClick() {
+                const position = this.dataset.position;
+                
+                // Don't allow re-clicking revealed cells
+                if (revealedCells.has(position)) return;
+                
+                revealedCells.add(position);
+                turns++;
+                turnsDisplay.textContent = turns;
+                
+                if (robotPositions.includes(position)) {
+                    // Hit a robot
+                    this.classList.add('hit', 'robot');
+                    robotsLeft--;
+                    robotsLeftDisplay.textContent = robotsLeft;
+                    messageDisplay.textContent = 'You defeated a pollution robot! The environment thanks you!';
+                    
+                    // Check if all robots are defeated
+                    if (robotsLeft === 0) {
+                        messageDisplay.textContent = 'Victory! You defeated all pollution robots and saved the environment!';
+                        revealAllTrees();
+                    }
+                } else if (treePositions.includes(position)) {
+                    // Found a tree
+                    this.classList.add('tree');
+                    treesSaved++;
+                    treesSavedDisplay.textContent = treesSaved;
+                    messageDisplay.textContent = 'You saved a tree! Trees help fight pollution naturally.';
+                    
+                    // Special effect when enough trees are saved
+                    if (treesSaved >= Math.floor(TREE_COUNT * 0.7)) {
+                        const treeCells = document.querySelectorAll('.tree');
+                        treeCells.forEach(cell => {
+                            cell.classList.add('recycled');
+                        });
+                        messageDisplay.textContent = 'The trees are fighting back against pollution! Their natural defenses are activated!';
+                    }
+                    
+                    // Environmental victory condition
+                    if (treesSaved >= TREE_COUNT * 0.8 && robotsLeft > 0) {
+                        messageDisplay.textContent = 'The environment has won! The trees have overcome the pollution robots with their natural resilience!';
+                        revealAllRobots();
+                        robotsLeft = 0;
+                        robotsLeftDisplay.textContent = robotsLeft;
+                    }
+                } else {
+                    // Miss
+                    this.classList.add('miss');
+                    messageDisplay.textContent = 'Nothing here. Keep searching for pollution robots!';
+                }
+            }
+            
+            // Reveal all trees at game end
+            function revealAllTrees() {
+                treePositions.forEach(pos => {
+                    const cell = document.querySelector(`.game-cell[data-position="${pos}"]`);
+                    if (!revealedCells.has(pos)) {
+                        cell.classList.add('tree', 'recycled');
+                        treesSaved++;
+                        treesSavedDisplay.textContent = treesSaved;
+                    }
+                });
+            }
+            
+            // Reveal all robots at game end
+            function revealAllRobots() {
+                robotPositions.forEach(pos => {
+                    const cell = document.querySelector(`.game-cell[data-position="${pos}"]`);
+                    if (!revealedCells.has(pos)) {
+                        cell.classList.add('robot');
+                    }
+                });
+            }
+            
+            // Restart game
+            restartButton.addEventListener('click', initGame);
+            
+            // Initialize first game
+            initGame();
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
